@@ -16,7 +16,7 @@
     },
     "autoload" : {
         "psr-0" : {
-            "Mediapark\\BaseRepositoryBundle" : "src"
+            "Mediapark\\BaseRepositoryBundle" : ""
         }
     },
     "minimum-stability": "dev",
