@@ -1,0 +1,31 @@
+{
+    "name" : "mediapark/base-repository",
+    "description" : "Mediapark base entity repository",
+    "type" : "symfony-bundle",
+    "authors" : [{
+        "name" : "algirdas",
+        "email" : "algirdas@mediapark.lt"
+    }],
+    "keywords" : [
+        "mediapark base entity repository"
+    ],
+    "license" : [
+        "MIT"
+    ],
+    "require" : {
+    },
+    "autoload" : {
+        "psr-0" : {
+            "Mediapark\\BaseRepositoryBundle" : "src"
+        }
+    },
+    "minimum-stability": "dev",
+    "target-dir" : "Mediapark/BaseRepositoryBundle",
+    "repositories" : [{
+    }],
+    "extra" : {
+    "branch-alias" : {
+            "dev-master" : "0.1-dev"
+        }
+    }
+}
