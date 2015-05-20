@@ -218,6 +218,11 @@ class BaseRepository extends EntityRepository {
         $this->filter = null;
     }
 
+    public function hydrateArray() {
+        $this->setArrayHydration();
+        return $this;
+    }
+
     public function removeFilter($filter) {
         if ($this->filterKeyExists($filter)) {
             unset($this->filter[$filter]);
