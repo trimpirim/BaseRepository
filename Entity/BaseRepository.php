@@ -21,14 +21,17 @@ class BaseRepository extends EntityRepository {
         $this->_entityName = $class->name;
         $this->_em = $em;
         $this->_class = $class;
+        return $this;
     }
 
     public function setFilter(array $filter) {
         $this->filter = $filter;
+        return $this;
     }
 
     public function addFilter($key, $value) {
         $this->filter[$key] = $value;
+        return $this;
     }
 
     public function getFilter() {
@@ -153,6 +156,7 @@ class BaseRepository extends EntityRepository {
             $this->qb()->setFirstResult($firstResult);
             $this->qb()->setMaxResults($this->getFilterByKey('limit'));
         }
+        return $this;
     }
 
     protected function addOrderByFilter() {
@@ -163,6 +167,7 @@ class BaseRepository extends EntityRepository {
             $orderBy = $this->trimOrderBy($orderBy);
             $this->addOrderByArray($orderBy, $orderHow);
         }
+        return $this;
     }
 
     protected function splitOrderByClause($orderBy) {
@@ -185,20 +190,24 @@ class BaseRepository extends EntityRepository {
         foreach ($orderBy as $item) {
             $this->addOrderBy($item, $orderHow);
         }
+        return $this;
     }
 
     public function addOrderBy($orderBy, $orderHow) {
         $this->_addOrderBy($orderBy, $orderHow);
+        return $this;
     }
 
     protected function _addOrderBy($orderBy, $orderHow) {
         $this->qb()->addOrderBy($orderBy, $orderHow);
+        return $this;
     }
 
     public function addFiltersByArray($filter = array()) {
         foreach ($filters as $key => $value) {
             $this->addFilter($key, $value);
         }
+        return $this;
     }
 
     public function where($value, $key = null, $param = null) {
@@ -207,6 +216,7 @@ class BaseRepository extends EntityRepository {
         if (!is_null($key) && !is_null($param)) {
             $this->qb()->setParameter($key, $param);
         }
+        return $this;
     }
 
     public function setArrayHydration() {
@@ -216,6 +226,7 @@ class BaseRepository extends EntityRepository {
 
     public function resetFilters() {
         $this->filter = null;
+        return $this;
     }
 
     public function hydrateArray() {
@@ -227,6 +238,7 @@ class BaseRepository extends EntityRepository {
         if ($this->filterKeyExists($filter)) {
             unset($this->filter[$filter]);
         }
+        return $this;
     }
 
 }
